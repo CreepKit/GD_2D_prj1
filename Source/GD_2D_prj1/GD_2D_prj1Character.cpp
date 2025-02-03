@@ -49,10 +49,10 @@ AGD_2D_prj1Character::AGD_2D_prj1Character()
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 
 	// Configure character movement
-	GetCharacterMovement()->GravityScale = 2.0f;
+	GetCharacterMovement()->GravityScale = 3.0f;
 	GetCharacterMovement()->AirControl = 0.80f;
 	GetCharacterMovement()->JumpZVelocity = 1000.f;
-	GetCharacterMovement()->GroundFriction = 3.0f;
+	GetCharacterMovement()->GroundFriction = 4.0f;
 	GetCharacterMovement()->MaxWalkSpeed = 600.0f;
 	GetCharacterMovement()->MaxFlySpeed = 600.0f;
 
