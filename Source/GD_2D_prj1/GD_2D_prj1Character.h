@@ -61,6 +61,12 @@ protected:
 public:
 	AGD_2D_prj1Character();
 
+	UPROPERTY(VisibleAnywhere)
+	//Code for controlling stamina of the player
+
+	int Stamina;
+	UPROPERTY(EditAnywhere)
+	int MaxStamina;
 	/** Returns SideViewCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetSideViewCameraComponent() const { return SideViewCameraComponent; }
 	/** Returns CameraBoom subobject **/
