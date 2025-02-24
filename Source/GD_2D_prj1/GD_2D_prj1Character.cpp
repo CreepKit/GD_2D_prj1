@@ -106,12 +106,12 @@ void AGD_2D_prj1Character::Tick(float DeltaSeconds)
 void AGD_2D_prj1Character::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	// Note: the 'Jump' action and the 'MoveRight' axis are bound to actual keys/buttons/sticks in DefaultInput.ini (editable from Project Settings..Input)
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-	PlayerInputComponent->BindAxis("MoveRight", this, &AGD_2D_prj1Character::MoveRight);
+	//PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	//PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	//PlayerInputComponent->BindAxis("MoveRight", this, &AGD_2D_prj1Character::MoveRight);
 
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &AGD_2D_prj1Character::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &AGD_2D_prj1Character::TouchStopped);
+	//PlayerInputComponent->BindTouch(IE_Pressed, this, &AGD_2D_prj1Character::TouchStarted);
+	//PlayerInputComponent->BindTouch(IE_Released, this, &AGD_2D_prj1Character::TouchStopped);
 }
 
 void AGD_2D_prj1Character::MoveRight(float Value)
