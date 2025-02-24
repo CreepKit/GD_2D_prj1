@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GD_2D_prj1Character.h"
+#include "EnhancedInputSubsystems.h"
 #include "PaperFlipbookComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -112,14 +113,28 @@ void AGD_2D_prj1Character::SetupPlayerInputComponent(class UInputComponent* Play
 
 	//PlayerInputComponent->BindTouch(IE_Pressed, this, &AGD_2D_prj1Character::TouchStarted);
 	//PlayerInputComponent->BindTouch(IE_Released, this, &AGD_2D_prj1Character::TouchStopped);
+
+	APlayerController* PlayerController = Cast<APlayerController>(GetController());
+
+	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
+
+	Subsystem->ClearAllMappings();
+	Subsystem->AddMappingContext(InputMapping, 0);
+
+	UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent);
+
+	Input->BindAction(IA_Move, ETriggerEvent::Triggered, this, &AGD_2D_prj1Character::MoveRight);
+
+
+
 }
 
-void AGD_2D_prj1Character::MoveRight(float Value)
+void AGD_2D_prj1Character::MoveRight(const FInputActionValue& Value)
 {
 	/*UpdateChar();*/
 
 	// Apply the input to the character motion
-	AddMovementInput(FVector(1.0f, 0.0f, 0.0f), Value);
+	AddMovementInput(FVector(1.0f, 0.0f, 0.0f), Value.Get<float>());
 }
 
 void AGD_2D_prj1Character::TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location)
