@@ -12,7 +12,7 @@
 
 UCLASS(ClassGroup = "Collision", HideCategories = (Object, LOD, Lighting, TextureStreaming),
 	EditInlineNew, Meta = (DisplayName = "Box Collision", BlueprintSpawnableComponent), MinimalAPI)
-	class UBoxComponent : public UShapeComponent;
+	class UBoxComponent : public UShapeComponent {};
 
 class GD_2D_PRJ1_API ABreakableScenery : public AActor
 {
